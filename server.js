@@ -1,45 +1,28 @@
-const express = require('express')
-const path = require('path')
-// logs the different requests to our server
-const logger = require('morgan')
-// cross origin access
+const express = require('express');
+require('dotenv').config()
+const axios = require('axios');
 const cors = require('cors')
+const app = express();
+const path = require('path')
 
+// console.log(process.env.API_KEY);
+app.use(cors('*/*'))
 
+// SERVE THE REACT APP FROM THE SERVER
+app.use(express.static(path.join(__dirname, 'build')))
 
-const app = express()
+//ROUTES
+app.get('/get_movie/:movieString', async (req, res) => {
+    console.log(req.params.movieString);
 
-// access
-app.use(cors({
-    origin: "*"
-}));
+    // call API
+    let apiResponse = await axios(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&t=${req.params.movieString}`)
+    const data = apiResponse.data;
+    console.log(data);
+    res.json(data);
+});
 
- //logs different requests to our server automatically
- app.use(logger('dev'))
-
-// parse stringified objects (JSON)
-app.use(express.json())
-// server build folder
-app.use(express.static(path.join(__dirname, 'build')));
-
-
-
-app.get('test_route', (req, res) =>{
-    res.send("good route");
-})
-
-
-app.get("/user", (req, res) => (
-    res.send("user router!")
-))
-
-// have has very last route
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-  });
-
- 
 
 app.listen(5000, () => {
-    console.log(`Server is Listening on 5000`)
-})
+    console.log(`Server is Listening on 5000`);
+});
