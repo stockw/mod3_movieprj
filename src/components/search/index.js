@@ -13,6 +13,16 @@ const Search = (props) => {
     const [searchString, setSearchString] = useState('');
 
     useEffect(() => {
+        
+    const makeServerCall = async (string) => {
+        let serverResponse = await axios({
+            method: 'GET',
+            url: `/get_movie/${string}`
+        });
+        console.log(serverResponse.data);
+        setSearchString('');
+        setSearchedMovie(serverResponse.data);
+    }
         // make this movie call randomly choose between 10 movies
         if (isFirstRender.current === true) {
             console.log("making api call");
@@ -52,7 +62,7 @@ const Search = (props) => {
     <section style={{borderBottom: "4px solid black", marginBottom: "20px", paddingBottom: "12px"}}>
         <h3>Search</h3>
         <form onSubmit={(event) => handleSubmit(event)}>
-            <label htmlFor="movie-search">Type the name of the movie you want to see!</label>
+            <label htmlFor="movie-search">What movie are you looking for? </label>
             <input 
                 type="search" 
                 name="movie-search" 
@@ -60,7 +70,7 @@ const Search = (props) => {
                 placeholder="movie name" 
                 onChange={(event) => handleChange(event)}
             />
-            <button type="">click me!</button>
+            <button type="">Search</button>
         </form>
     </section>
   )
