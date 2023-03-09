@@ -9,3 +9,8 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Opens [http://localhost:5000](http://localhost:5000) to view it in your browser.
+
+
+### To View hosted app visit
+
+[https://dubmoviesearch.onrender.com]

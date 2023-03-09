@@ -4,6 +4,7 @@ import Search from '../../components/search';
 import DisplayMovie from '../../components/display_movie';
 import WatchList from '../../components/watch_list';
 import MovieRatings from '../../components/movie_ratings';
+import '../../index.css'
 
 
 const MoviePage = () => {
