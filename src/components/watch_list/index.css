@@ -1,0 +1,12 @@
+#wlist {
+    font-family: fantasy;
+    color: orangered;
+    word-spacing: 2px;
+}
+
+#mArray {
+    font-size: large;
+    font-style: oblique;
+    font-stretch: expanded;
+    font-weight: bold;
+}

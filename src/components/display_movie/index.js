@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './index.css';
 
 const DisplayMovie = (props) => {
   let { searchedMovie, movieArray, setMovieArray } = props;
@@ -30,16 +31,16 @@ const handleButtonClick = async () => {
 }
   const returnMovieJSX = () => {
     if (searchedMovie !== null) {
-      console.log(searchedMovie);
+      // console.log(searchedMovie);
       return (
-        <div>
-        <h3>MOVIE DISPLAY</h3>
-        <h4>{searchedMovie.title}</h4>
-        <p>{searchedMovie.id}</p>
+        <div id='movieDisplay'>
+        <h3 id= "mDisplay">MOVIE DISPLAY</h3>
+        <h4 id="mTitle">{searchedMovie.title}</h4>
+        <p id="mId">{searchedMovie.id}</p>
       {/* check if posterURL exists */}
       {searchedMovie.poster_path?
       
-      <img src={"https://image.tmdb.org/t/p/w500"+searchedMovie.poster_path} alt="Movie Poster" />
+      <img id="mIMG" src={"https://image.tmdb.org/t/p/w500"+searchedMovie.poster_path} alt="Movie Poster" />
       :<div></div> 
       }
       <div></div>
@@ -56,9 +57,9 @@ const handleButtonClick = async () => {
     }
   }
   return (
-    <section 
+    <section id="mSection"
       style={{borderBottom: "4px solid black", marginBottom: "20px", paddingBottom: "12px"}} 
-      onClick={() => handleButtonClick(searchedMovie.title)}
+      // onClick={() => handleButtonClick(searchedMovie.title)}
     >
       { returnMovieJSX() }
     </section>

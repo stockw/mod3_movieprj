@@ -19,7 +19,7 @@ const Search = (props) => {
             method: 'GET',
             url: `/get_movie/${string}`
         });
-        console.log(serverResponse.data);
+        // console.log(serverResponse.data);
         setSearchString('');
         setSearchedMovie(serverResponse.data);
     }
@@ -27,7 +27,7 @@ const Search = (props) => {
         if (isFirstRender.current === true) {
             console.log("making api call");
             isFirstRender.current = false;
-            makeServerCall("Pacific Rim")
+            makeServerCall("")
         }
     }, []);
     // listen for submit and make call to server
@@ -45,7 +45,7 @@ const Search = (props) => {
             method: 'GET',
             url: `/get_movie/${string}`
         });
-        console.log(serverResponse);
+        // console.log(serverResponse);
         setSearchString('');
         setSearchedMovie(serverResponse.data);
     }

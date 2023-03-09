@@ -1,0 +1,77 @@
+#mDisplay {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    color: red;
+    text-decoration-color: black;
+}
+
+#mTitle {
+    font-size: x-large;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    font-family: cursive;
+}
+
+#mId {
+    color: crimson;
+}
+
+#mIMG {
+    border-width: 12px;
+    border-color: brown;
+    border-bottom-style: ridge;
+    border-left-style: ridge;
+    border-top-style: ridge;
+    border-right-style: ridge;;
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .star::before,
+  .star::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-right: 12.5px solid transparent;
+    border-bottom: 25px solid black;
+    border-left: 12.5px solid transparent;
+    transform: rotate(35deg);
+  }
+  
+  .star::before {
+    transform: rotate(-35deg);
+  }
+  
+  /* Apply the stars to the page */
+  #mSection {
+    background: tan;
+  }
+  
+  .star:nth-child(1) {
+    top: 20%;
+    left: 10%;
+  }
+  
+  .star:nth-child(2) {
+    top: 50%;
+    left: 25%;
+  }
+  
+  .star:nth-child(3) {
+    top: 80%;
+    left: 50%;
+  }
+  
+  .star:nth-child(4) {
+    top: 60%;
+    left: 75%;
+  }
