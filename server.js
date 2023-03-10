@@ -45,6 +45,16 @@ app.get('/get_WatchList', async (req, res) => {
     res.json(watchArray)
 })
 
+app.delete('/delete_WatchList', async(req, res) => {
+    try {
+        await Movie.deleteMany();
+        res.status(200).send('All movies deleted successfully');
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error deleting movies')
+    }
+});
+
 
 app.listen(5000, () => {
     console.log(`Server is Listening on 5000`);

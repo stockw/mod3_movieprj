@@ -2,19 +2,27 @@ import React from 'react'
 import './index.css';
 
 const WatchList = (props) => {
-    let {movieArray} = props;
+    let {movieArray, onDelete} = props;
+
+    const handleDeleteClick = () => {
+  onDelete();
+}    
     // console.log(movieArray);
-    let arrayJSX = movieArray.map((movie, index) => {
+    const arrayJSX = movieArray.map((movie, index) => {
         return <div key={index}>
             {movie.title}
-        </div>
-    })
+        </div>      
+    });
 
+       
   return (
     <div style={{marginBottom: "50px"}}>
         <h1 id="wlist">My Watch List</h1>
       <div id="mArray"> 
         {arrayJSX}
+      </div>
+      <div id='dMovie'>
+        <button id='delete' onClick={handleDeleteClick}>Delete List</button>
       </div>
     </div>
   )

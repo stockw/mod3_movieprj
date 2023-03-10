@@ -11,10 +11,26 @@ const MoviePage = () => {
 
   const [searchedMovie, setSearchedMovie] = useState(null);
   const [movieArray, setMovieArray] = useState([]);
+
+  // Define the handleDelete function
+  const handleDelete = async () => {
+    // Make axios request to delete the watchlist from database
+    let response = await axios({
+      method: 'Delete',
+      url: 'delete_Watchlist'
+    });
+    console.log(response);
+
+    // Clear the movie array
+    setMovieArray([]);
+  };
+
   const logString = (string) => {
     console.log("string is in APP", string);
   }
+
 // put useEffect that will get all watchlist movies from database and setmoviearray with those movies
+
 useEffect(() => {
   const getWatchList = async () => {
   let response = await axios({
@@ -38,10 +54,9 @@ getWatchList()
         />
         {/* display the ratings (map through) */}
         {/* <MovieRatings searchedMovie={searchedMovie} />  */}
-        <WatchList movieArray={movieArray} />
-     
-    </div>
-  )
-}
+        <WatchList movieArray={movieArray} onDelete={handleDelete} />
+         </div>
+  );
+};
 
 export default MoviePage
