@@ -19,7 +19,9 @@ const handleButtonClick = async () => {
     })
     if (!movieArray.includes(searchedMovie.title)) {
       setMovieArray([...movieArray, searchedMovie.title])
-}
+    }
+    window.location.reload();
+
 // return (
 //   <section 
 //     style={{borderBottom: "4px solid black", marginBottom: "20px", paddingBottom: "12px"}} 

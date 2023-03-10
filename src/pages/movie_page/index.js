@@ -13,7 +13,7 @@ const MoviePage = () => {
   const [movieArray, setMovieArray] = useState([]);
 
   // Define the handleDelete function
-  const handleDelete = async () => {
+  const handleDelete = async (req, res) => {
     // Make axios request to delete the watchlist from database
     let response = await axios({
       method: 'Delete',

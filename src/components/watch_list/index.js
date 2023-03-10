@@ -4,7 +4,7 @@ import './index.css';
 const WatchList = (props) => {
     let {movieArray, onDelete} = props;
 
-    const handleDeleteClick = () => {
+    const handleDelete = () => {
   onDelete();
 }    
     // console.log(movieArray);
@@ -22,10 +22,11 @@ const WatchList = (props) => {
         {arrayJSX}
       </div>
       <div id='dMovie'>
-        <button id='delete' onClick={handleDeleteClick}>Delete List</button>
+        <button id='delete' onClick={handleDelete}>Delete List</button>
       </div>
     </div>
   )
+  
 }
 
 export default WatchList
