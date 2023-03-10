@@ -23,6 +23,7 @@ const MoviePage = () => {
 
     // Clear the movie array
     setMovieArray([]);
+    window.location.reload();
   };
 
   const logString = (string) => {
